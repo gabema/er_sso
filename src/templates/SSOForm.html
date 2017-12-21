@@ -1,0 +1,34 @@
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="card">
+		  <div class="card-body">
+		    URL: <a href="{{ url }}" target="_blank">{{ url }}</a>
+		  </div>
+		</div>
+		<form action="/" method="post">
+		  <div class="form-group">
+		    <label for="exampleInputEmail1">Email address</label>
+		    <input type="email" class="form-control" id="exampleInputEmail1" value="{{ email }}" name="email" placeholder="Enter email">
+		  </div>
+		  <div class="form-group">
+		    <label for="exampleInputPassword1">Password</label>
+		    <input type="password" class="form-control" id="exampleInputPassword1" name="password" value="{{ password }}" placeholder="Password">
+		  </div>
+		  <div class="form-group">
+		    <label for="userid">ER User ID</label>
+		    <input class="form-control" id="userid" name="userId" placeholder="User ID" value="{{ userId }}">
+		  </div>
+		  <div class="form-group">
+		    <label for="accountid">ER Account ID</label>
+		    <input class="form-control" id="accountid" name="accountId" placeholder="Account ID" value="{{ accountId }}">
+		  </div>
+		  <button type="submit" name="url" class="btn btn-primary">Generate URL</button>
+		  <button type="submit" name="login" class="btn btn-primary">Login</button>
+		</form>
+	</div>
+</body>
+</html>

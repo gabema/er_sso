@@ -1,0 +1,11 @@
+version: "3"
+services:
+  nginx:
+    container_name: er_sso
+    image: webdevops/php-nginx:alpine-php7
+    volumes:
+      - ${PWD}/src:/app
+    environment:
+      - WEB_DOCUMENT_INDEX=app.php
+    ports:
+      - "8089:80"

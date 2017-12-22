@@ -15,3 +15,27 @@ function buildURL($url_params){
 	$url_params['hash'] = $hash;
 	return HALLIGAN_HOST . '/' . HALLIGAN_URL . '?' . http_build_query($url_params);
 }
+
+function buildAuthorizeURL($baseUrl, $urlParams) {
+	return "$baseUrl/authorize?" . http_build_query($urlParams);
+}
+
+function getRefreshAuthTokens($authURL, $payload) {
+    $client = new \GuzzleHttp\Client();
+    $res = $client->request('POST', "$authURL/Token.php", [
+        'json' => $payload,
+        'verify' => false, // ONLY ON FOR DEBUG / DEMO purposes
+    ]);
+
+    // TODO: Handle non success error codes
+    return json_decode($res->getBody(), true);
+}
+
+function getUsersMe($apiURL, $accessToken) {
+    $client = new \GuzzleHttp\Client();
+    $res = $client->request('GET', "$apiURL/V1/users/me", [
+        'headers' => ['Authorization' => $accessToken],
+        'verify' => false, // ONLY ON FOR DEBUG / DEMO purposes
+    ]);
+    return json_decode($res->getBody(), true);        
+}

@@ -3,6 +3,10 @@
     "description": "Simple form for generating SSO URLs",
     "type": "project",
     "require": {
-        "twig/twig": "^2.0"
+        "twig/twig": "^2.0",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "scripts": {
+        "serve": "php -t . -S localhost:8080"
     }
 }
